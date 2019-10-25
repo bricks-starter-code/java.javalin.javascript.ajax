@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javalin + AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>The content below will change with an AJAX call.</div>
+        <div id="toChange">Original text</div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script>
+            //Get content from the sever using ajax.
+            
+            $.ajax({url: "/ajax", success: function(result){
+                $("#toChange").html(result);
+            }});
+        </script>
+    </body>
+</html>
