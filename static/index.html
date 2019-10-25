@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javalin + AJAX</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>The content below will change with an AJAX call.</div>
+        <div id="toChange">Original text</div>
+
+        <script>
+            //More on AJAX calls at: https://www.w3schools.com/xml/ajax_intro.asp
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("toChange").innerHTML = this.responseText;
+            }
+            };
+            xhttp.open("GET", "/ajax", true);
+            xhttp.send();
+        </script>
+    </body>
+</html>
